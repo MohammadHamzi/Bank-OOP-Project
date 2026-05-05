@@ -5,6 +5,7 @@ namespace BankCore.Core
 {
     public class clsAccountsList
     {
+        // TODO: Implement account list logic
         // ======== Main List ========
         // القائمة الرئيسية التي تحتوي على حسابات من النوع الأساسي clsBankClient
         private readonly List<clsBankClient> _accounts;

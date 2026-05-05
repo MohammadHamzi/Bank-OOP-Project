@@ -15,6 +15,8 @@ namespace BankApp
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 
+            Console.WriteLine("Bank System Started...");
+
             // Subscribe event handlers
             // ربط معالجات الأحداث بالأحداث الخاصة بعمليات التحويل والسحب الكبير
             clsBankClient.OnTransferCompleted += clsBankClient.LogTransfer;
