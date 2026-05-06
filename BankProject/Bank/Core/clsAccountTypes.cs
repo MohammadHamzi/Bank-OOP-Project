@@ -45,6 +45,19 @@ namespace BankCore.Core
         // حساب الفائدة السنوية
         public float CalculateAnnualInterest()
             => AccountBalance * (_interestRate / 100f);
+// Override withdraw behavior for savings accounts
+// إعادة تعريف السحب لحسابات التوفير
+
+public override bool Withdraw(float amount)
+{
+    // Savings accounts must keep at least 100 USD
+    // حساب التوفير يجب أن يحتفظ بحد أدنى 100 دولار
+
+    if (AccountBalance - amount < 100)
+        return false;
+
+    return base.Withdraw(amount);
+}
 
         public override string ToString() => GetSummary();
     }

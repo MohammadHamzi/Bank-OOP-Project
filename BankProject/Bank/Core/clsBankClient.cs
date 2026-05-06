@@ -147,6 +147,24 @@ namespace BankCore.Core
             return true;
         }
 
+        // ======== IBankEntity decimal overloads ========
+// تنفيذ دوال الواجهة باستخدام decimal مع الحفاظ على دوال float الحالية
+
+public void Deposit(decimal amount)
+{
+    Deposit((float)amount);
+}
+
+public bool Withdraw(decimal amount)
+{
+    return Withdraw((float)amount);
+}
+
+public decimal GetBalance()
+{
+    return (decimal)_accountBalance;
+}
+
         // Transfers money between two clients and fires a completion event
         // تحويل الأموال بين عميلين وإطلاق حدث عند اكتمال التحويل
         public bool Transfer(float amount, ref clsBankClient destinationClient, string performedByUser)

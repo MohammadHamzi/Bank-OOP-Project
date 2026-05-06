@@ -7,11 +7,11 @@ namespace BankCore.Interfaces
     public interface IBankEntity
     {
         // Returns the unique identifier of the entity
-        // يعيد المعرّف الفريد للكيان
+        // يعيد المعرف الفريد للكيان
         string GetEntityId();
 
         // Returns a readable summary of the entity data
-        // يعيد ملخصًا مقروءًا لبيانات الكيان
+        // يعيد ملخصاً مقروءاً لبيانات الكيان
         string GetSummary();
 
         // Validates the entity data
@@ -19,7 +19,19 @@ namespace BankCore.Interfaces
         bool Validate();
 
         // Returns the actual entity type
-        // يعيد نوع الكيان الفعلي
+        // يعيد نوع الكيان الحقيقي
         string GetEntityType();
+
+        // Deposits money into the account
+        // إيداع مبلغ داخل الحساب
+        void Deposit(decimal amount);
+
+        // Withdraws money from the account
+        // سحب مبلغ من الحساب
+        bool Withdraw(decimal amount);
+
+        // Returns current account balance
+        // يعيد الرصيد الحالي للحساب
+        decimal GetBalance();
     }
 }
