@@ -39,5 +39,15 @@ namespace BankCore.Lib
 
             return new string(chars);
         }
+
+        // Generate random account number
+        // توليد رقم حساب عشوائي
+
+        public static string GenerateRandomAccountNumber()
+        {
+            Random rnd = new Random();
+
+            return "ACC-" + rnd.Next(10000, 99999);
+        }
     }
 }

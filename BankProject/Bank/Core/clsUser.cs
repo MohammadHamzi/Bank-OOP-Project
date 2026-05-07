@@ -90,6 +90,14 @@ namespace BankCore.Core
         public override string GetSummary()
             => $"User: {FullName} | Username: {_userName} | Permission: {_permission}";
 
+        // Returns readable user information
+        // إرجاع معلومات المستخدم بشكل مقروء
+
+        public string GetUserInfo()
+        {
+            return $"User: {FullName} | Username: {_userName} | Permissions: {_permission}";
+        }
+
         public override bool Validate()
         {
             return base.Validate()

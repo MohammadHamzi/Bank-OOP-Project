@@ -70,5 +70,18 @@ namespace BankCore.Lib
         {
             _validationCallCount = 0;
         }
+
+        // Validate phone number format
+        // التحقق من صحة رقم الهاتف
+
+        public static bool IsValidPhoneNumber(string phone)
+        {
+            _validationCallCount++;
+
+            if (string.IsNullOrWhiteSpace(phone))
+                return false;
+
+            return Regex.IsMatch(phone.Trim(), @"^[0-9]{7,15}$");
+        }
     }
 }
