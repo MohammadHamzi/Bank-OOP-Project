@@ -127,7 +127,7 @@ namespace BankCore.Core
 
         // Withdraws a valid amount and fires an event for large withdrawals
         // سحب مبلغ صالح وإطلاق حدث عند السحب الكبير
-        public bool Withdraw(float amount)
+        public virtual bool Withdraw(float amount)
         {
             if (!clsValidation.IsPositiveAmount(amount))
                 return false;
@@ -148,22 +148,22 @@ namespace BankCore.Core
         }
 
         // ======== IBankEntity decimal overloads ========
-// تنفيذ دوال الواجهة باستخدام decimal مع الحفاظ على دوال float الحالية
+        // تنفيذ دوال الواجهة باستخدام decimal مع الحفاظ على دوال float الحالية
 
-public void Deposit(decimal amount)
-{
-    Deposit((float)amount);
-}
+        public override void Deposit(decimal amount)
+        {
+            Deposit((float)amount);
+        }
 
-public bool Withdraw(decimal amount)
-{
-    return Withdraw((float)amount);
-}
+        public override bool Withdraw(decimal amount)
+        {
+            return Withdraw((float)amount);
+        }
 
-public decimal GetBalance()
-{
-    return (decimal)_accountBalance;
-}
+        public override decimal GetBalance()
+        {
+            return (decimal)_accountBalance;
+        }
 
         // Transfers money between two clients and fires a completion event
         // تحويل الأموال بين عميلين وإطلاق حدث عند اكتمال التحويل

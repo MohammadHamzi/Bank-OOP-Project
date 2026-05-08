@@ -81,6 +81,12 @@ namespace BankCore.Core
 
         public abstract string GetEntityId();
 
+        public abstract void Deposit(decimal amount);
+
+        public abstract bool Withdraw(decimal amount);
+
+        public abstract decimal GetBalance();
+
         // Common validation for person data
         // تحقق مشترك من بيانات الشخص
         public virtual bool Validate()

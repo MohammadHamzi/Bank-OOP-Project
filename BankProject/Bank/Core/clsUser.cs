@@ -98,6 +98,24 @@ namespace BankCore.Core
             return $"User: {FullName} | Username: {_userName} | Permissions: {_permission}";
         }
 
+        // ======== IBankEntity Banking Operations Not Supported for Users ========
+        // مستخدم النظام ليس حسابًا بنكيًا، لذلك لا يدعم عمليات الإيداع والسحب
+
+        public override void Deposit(decimal amount)
+        {
+            throw new InvalidOperationException("System users do not support deposit operations.");
+        }
+
+        public override bool Withdraw(decimal amount)
+        {
+            throw new InvalidOperationException("System users do not support withdraw operations.");
+        }
+
+        public override decimal GetBalance()
+        {
+            return 0;
+        }
+
         public override bool Validate()
         {
             return base.Validate()
